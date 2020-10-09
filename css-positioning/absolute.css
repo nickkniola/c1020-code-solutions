@@ -13,8 +13,8 @@
 .emoji {
   font-size: 3rem;
   position: absolute;
-  left: 235px;
-  bottom: 220px;
+  top: 1rem;
+  right: 1rem;
 }
 
 .joke {
@@ -26,12 +26,14 @@
   -webkit-text-stroke: 1px black;
   text-transform: uppercase;
   position: absolute;
-  top: 160px;
+  bottom: 0;
 }
 
 .overlay {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-  width: 300px;
-  height: 300px;
   position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
