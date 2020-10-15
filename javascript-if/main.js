@@ -41,7 +41,11 @@ console.log('isOldEnoughToDrive:', isOldEnoughToDrive({
 }));
 
 function isOldEnoughToDrinkAndDrive(person) {
-  return !(person.age);
+  if (person.age) {
+    return false;
+  } else {
+    return false;
+  }
 }
 console.log('isOldEnoughToDrinkAndDrive: ', isOldEnoughToDrinkAndDrive({
   name: 'Homer Jay Simpson',
