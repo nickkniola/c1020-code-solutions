@@ -1,12 +1,47 @@
 .row {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 
 .col {
   flex-basis: auto;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 img {
   width: 12rem;
+}
+
+h1,
+h3,
+p {
+  font-family: "DM Sans", sans-serif;
+}
+
+h1 {
+  font-size: 18pt;
+  font-weight: 200;
+  margin: 0 0 1rem 0;
+}
+
+h3 {
+  font-size: 8pt;
+  font-weight: 400;
+}
+
+p {
+  font-size: 8pt;
+}
+
+h3 > span,
+p > del {
+  color: lightgray;
+}
+
+p > span {
+  background-color: rgb(255, 239, 229);
+  border-radius: 20%;
+  padding: 1px 2px 1px 2px;
 }
