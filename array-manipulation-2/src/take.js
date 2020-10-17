@@ -3,9 +3,11 @@
 function take(array, count) {
   var newArray = [];
 
-  /* if (array === ) */
+  if (array.length < 1) {
+    return newArray;
+  }
 
-  for (let i = 0; i < count; i++) {
+  for (var i = 0; i < count; i++) {
     newArray.push(array[i]);
   }
 
