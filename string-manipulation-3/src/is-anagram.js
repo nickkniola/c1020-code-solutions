@@ -3,7 +3,7 @@ function isAnagram(firstString, secondString) {
   secondString = secondString.replaceAll(' ', '');
 
   for (var i = 0; i < secondString.length; i++) {
-    var secondStringChar = secondString[i];
+    var secondStringChar = secondString[0];
 
     if (!firstString.includes(secondStringChar)) {
       return false;
@@ -14,5 +14,3 @@ function isAnagram(firstString, secondString) {
   }
   return true;
 }
-
-/* console.log(isAnagram('ludicrous', 'ridiculous')); */
