@@ -4,10 +4,7 @@ function unique(array) {
   var oldElements = [];
   // loop through array, checking if each element is in oldElements
   for (var i = 0; i < array.length; i++) {
-    if (oldElements.includes(array[i])) {
-      continue;
-    } else {
-      // otherwise push into oldElements
+    if (!oldElements.includes(array[i])) {
       oldElements.push(array[i]);
     }
   }
