@@ -1,0 +1,18 @@
+var obj = new Object();
+var arr = new Array();
+var func = new Function();
+var str = new String();
+var num = new Number();
+var bool = new Boolean();
+console.log('obj object:', obj);
+console.log('typeof obj:', typeof obj);
+console.log('arr array:', arr);
+console.log('typeof arr:', typeof arr);
+console.log('func function:', func);
+console.log('typeof func:', typeof func);
+console.log('str string:', str);
+console.log('typeof str:', typeof str);
+console.log('num number:', num);
+console.log('typeof num:', typeof num);
+console.log('bool boolean:', bool);
+console.log('typeof bool:', typeof bool);
