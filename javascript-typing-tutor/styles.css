@@ -5,13 +5,22 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  height: 50vh;
+  margin: 1rem;
 }
 
-.text {
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 28px;
+  text-align: center;
+}
+
+h2 {
   font-family: 'Courier New', Courier, monospace;
   font-size: 40px;
+  text-align: center;
 }
 
 .selected {
@@ -31,7 +40,27 @@ body {
   color: red;
 }
 
-span {
+h1 span {
   display: inline-block;
-  width: 24px;
+  width: 16px;
+  height: 30px;
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+button {
+  padding: 20px 15px;
+  margin: auto;
+  background-color: white;
+  border: 1px black solid;
+  box-shadow: 3px 3px 5px black;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: 16px;
 }
