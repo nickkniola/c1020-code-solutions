@@ -22,34 +22,26 @@ function titleCase(title) {
   for (var i = 0; i < arrayOfWords.length; i++) {
     var word = arrayOfWords[i];
 
-    if (i === 0) {
-      if (word.toLowerCase() === 'javascript:') {
-        stringToReturn += 'JavaScript:';
-        continue;
+    if ((word.toLowerCase().includes('javascript') || word.toLowerCase().includes('api'))) {
+      if (i === 0) {
+        if (word.toLowerCase() === 'javascript:') {
+          stringToReturn += 'JavaScript:';
+        } else if (word.toLowerCase() === 'javascript') {
+          stringToReturn += 'JavaScript';
+        } else if (word.toLowerCase() === 'api') {
+          stringToReturn += 'API';
+        }
+      } else {
+        if (word.toLowerCase() === 'javascript:') {
+          stringToReturn += ' JavaScript:';
+        } else if (word.toLowerCase() === 'javascript') {
+          stringToReturn += ' JavaScript';
+        } else if (word.toLowerCase() === 'api') {
+          stringToReturn += ' API';
+        }
       }
-      if (word.toLowerCase() === 'javascript') {
-        stringToReturn += 'JavaScript';
-        continue;
-      }
-      if (word.toLowerCase() === 'api') {
-        stringToReturn += 'API';
-        continue;
-      }
-    } else {
-      if (word.toLowerCase() === 'javascript:') {
-        stringToReturn += ' JavaScript:';
-        continue;
-      }
-      if (word.toLowerCase() === 'javascript') {
-        stringToReturn += ' JavaScript';
-        continue;
-      }
-      if (word.toLowerCase() === 'api') {
-        stringToReturn += ' API';
-        continue;
-      }
+      continue;
     }
-
     if (!(i === 0 || arrayOfWords[i - 1].includes(':'))) {
       if (arrayOfLowercaseWords.includes(word)) {
         if (i !== 0) {
@@ -57,7 +49,6 @@ function titleCase(title) {
         } else {
           stringToReturn = stringToReturn + word;
         }
-
         continue;
       }
     }
