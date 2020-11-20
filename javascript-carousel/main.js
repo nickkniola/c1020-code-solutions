@@ -1,5 +1,4 @@
 var i = 0;
-var prevI = null;
 var images = ['images/001.png', 'images/004.png', 'images/007.png', 'images/039.png', 'images/025.png'];
 
 var intervalID = setInterval(changeImage, 3000);
@@ -11,7 +10,6 @@ var rightArrow = document.querySelector('i.fa-chevron-right');
 var leftArrow = document.querySelector('i.fa-chevron-left');
 
 function changeImage() {
-  console.log('changeImage running');
   var image = images[i];
   var circle = circleNodeList[i];
   for (var k = 0; k < circleNodeList.length; k++) {
@@ -33,7 +31,6 @@ function dotAnalyzer(event) {
     if (event.target === circle) {
       i = j;
       changeImage();
-      // i++;
       clearInterval(intervalID);
       intervalID = setInterval(changeImage, 3000);
     }
@@ -46,7 +43,6 @@ function rightArrowAnalyzer(event) {
   if (i > 4) {
     i = 0;
   }
-  // i++;
   changeImage();
   clearInterval(intervalID);
   intervalID = setInterval(changeImage, 3000);
@@ -62,9 +58,6 @@ function leftArrowAnalyzer(event) {
 }
 
 function changeImageToLeft() {
-  if (prevI === null && i !== 0) {
-    prevI = i - 1;
-  }
   if (i === -1) {
     i = 4;
   }
@@ -75,5 +68,4 @@ function changeImageToLeft() {
   }
   carouselImage.setAttribute('src', image);
   circle.setAttribute('class', 'fas fa-circle');
-  prevI = i;
 }
