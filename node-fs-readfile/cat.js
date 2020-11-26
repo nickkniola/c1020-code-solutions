@@ -10,7 +10,7 @@ function filesReader(i = 0) {
       console.log(textContent);
       return;
     }
-    return setTimeout(function () { filesReader(i++); }, 500, i++);
+    return setTimeout(function () { filesReader(i); }, 500, i++);
   });
 }
 filesReader();
