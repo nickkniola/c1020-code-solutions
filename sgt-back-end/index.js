@@ -17,7 +17,7 @@ app.get('/api/grades', (req, res, next) => {
   db.query(sql)
     .then(result => {
       const allRows = result.rows;
-      res.json(allRows);
+      res.status(200).json(allRows);
     })
     .catch(err => {
       console.error(err);
