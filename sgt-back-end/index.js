@@ -31,18 +31,17 @@ app.post('/api/grades', (req, res, next) => {
   const name = req.body.name;
   const course = req.body.course;
   const score = parseInt(req.body.score);
-
   if (!Number.isInteger(score) || score < 0 || score > 100) {
     res.status(400).json({
-      error: 'Score must be a positive integer between 0 and 100'
+      error: '"score" must be a positive integer between 0 and 100'
     });
   } else if (!name) {
     res.status(400).json({
-      error: 'Missing name'
+      error: 'Missing or invalid "name"'
     });
   } else if (!course) {
     res.status(400).json({
-      error: 'Missing course'
+      error: 'Missing or invalid "course"'
     });
   } else {
     const sql = `
@@ -72,24 +71,28 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
   const score = parseInt(req.body.score);
   if (!name) {
     res.status(400).json({
-      error: 'Missing or invalid name'
+      error: 'Missing or invalid "name"'
     });
   } else if (!course) {
     res.status(400).json({
-      error: 'Missing or invalid course'
+      error: 'Missing or invalid "course"'
     });
   } else if (!Number.isInteger(score) || score < 0 || score > 100) {
     res.status(400).json({
-      error: 'Score must be a positive integer between 0 and 100'
+      error: '"score" must be a positive integer between 0 and 100'
+    });
+  } else if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({
+      error: '"gradeId" must be a positive integer'
     });
   } else {
     const sql1 = `
-     update "grades"
-        set "name" = $1,
-            "course" = $2,
-            "score" = $3
-      where "gradeId" = $4
-  returning *;
+      update "grades"
+         set "name" = $1,
+             "course" = $2,
+             "score" = $3
+       where "gradeId" = $4
+   returning *;
     `;
     const values = [name, course, score, gradeId];
     db.query(sql1, values)
@@ -97,10 +100,43 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
         const grade = result.rows[0];
         if (!grade) {
           res.status(404).json({
-            error: 'GradeId not found in the database'
+            error: `'gradeId' ${gradeId} not found in the database`
           });
         }
         res.status(200).json(grade);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).json({
+          error: 'An unexpected error occurred'
+        });
+      });
+  }
+});
+
+app.delete('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = parseInt(req.params.gradeId);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({
+      error: '"gradeId" must be a positive integer'
+    });
+  } else {
+    const sql = `
+      delete from "grades"
+       where "gradeId" = $1
+   returning *
+    `;
+    const values = [gradeId];
+    db.query(sql, values)
+      .then(result => {
+        const grade = result.rows[0];
+        if (!grade) {
+          res.status(404).json({
+            error: `'gradeId' ${gradeId} not found in the database`
+          });
+        } else {
+          res.status(204).json();
+        }
       })
       .catch(err => {
         console.error(err);
