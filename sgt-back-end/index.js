@@ -102,8 +102,9 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
           res.status(404).json({
             error: `'gradeId' ${gradeId} not found in the database`
           });
+        } else {
+          res.status(200).json(grade);
         }
-        res.status(200).json(grade);
       })
       .catch(err => {
         console.error(err);
