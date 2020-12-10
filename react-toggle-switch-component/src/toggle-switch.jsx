@@ -20,16 +20,25 @@ class ToggleSwitch extends React.Component {
     const switchOn = this.state.switchOn;
     let switchClassName = '';
     let circleClassName = '';
+    let background = '';
+    let switchText = '';
     if (switchOn) {
       switchClassName = 'switch';
       circleClassName = 'circle';
+      background = 'background';
+      switchText = 'ON';
     } else {
       switchClassName = 'switch off';
       circleClassName = 'circle off';
+      background = 'background off';
+      switchText = 'OFF';
     }
     return (
-      <div className={switchClassName} onClick={this.toggleSwitch}>
-        <div className={circleClassName}></div>
+      <div className={background}>
+        <div className={switchClassName} onClick={this.toggleSwitch}>
+          <div className={circleClassName}></div>
+        </div>
+        <p>{switchText}</p>
       </div>
     );
   }

@@ -5,7 +5,7 @@ import ToggleSwitch from './toggle-switch';
 class App extends React.Component {
   render() {
     return (
-      <div className="background"><ToggleSwitch/></div>
+      <ToggleSwitch />
     );
   }
 }
