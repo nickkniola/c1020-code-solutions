@@ -7,10 +7,10 @@ function filesReader(i = 0) {
     if (err) throw err;
     textContent += data + '\n';
     if (i + 1 === fileNames.length) {
-      console.log(textContent);
+      process.stdout.write(textContent);
       return;
     }
-    return setTimeout(function () { filesReader(i); }, 500, i++);
+    return filesReader(++i);
   });
 }
 filesReader();
