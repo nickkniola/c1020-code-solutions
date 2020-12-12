@@ -23,6 +23,7 @@ class ValidatedInput extends React.Component {
           <br></br>
           <input type="password" name="password" onChange={this.handlePassword}></input>
         </form>
+        <p>A password is required</p>
       </div>
     );
   }
