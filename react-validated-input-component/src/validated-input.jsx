@@ -9,21 +9,36 @@ class ValidatedInput extends React.Component {
     this.handlePassword = this.handlePassword.bind(this);
   }
 
-  handlePassword() {
+  handlePassword(event) {
     this.setState({
-      password: this.state.password
+      password: event.target.value
     });
   }
 
   render() {
+    const password = this.state.password;
+    let error = '';
+    let icon = '';
+    if (!password) {
+      error = 'A password is required.';
+      icon = 'fas fa-times';
+    } else if (password.length < 8) {
+      error = 'Your password is too short.';
+      icon = 'fas fa-times';
+    } else {
+      error = '';
+      icon = 'fas fa-check';
+    }
+
     return (
       <div>
         <form>
           <label htmlFor="password">Password</label>
           <br></br>
-          <input type="password" name="password" onChange={this.handlePassword}></input>
+          <input type="password" name="password" value={this.state.password} onChange={this.handlePassword}></input>
+          <i className={icon}></i>
         </form>
-        <p>A password is required</p>
+        <p>{error}</p>
       </div>
     );
   }
