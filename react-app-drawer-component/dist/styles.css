@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: Calibri, sans-serif;
+}
+
+div.app-body {
+  background-color: grey;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+li {
+  margin-top: 0.7rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+i.fa-bars {
+  font-size: 2rem;
+}
+
+div.menu {
+  display: inline-block;
+  width: 12rem;
+  border-right: 3px solid black;
+  height: 100vh;
+  background-color: white;
+}
