@@ -12,8 +12,13 @@ class AppDrawer extends React.Component {
   }
 
   render() {
+    const menuIsOpen = this.props.menuIsOpen;
+    let menuClassName = 'menu';
+    if (menuIsOpen) {
+      menuClassName = 'menu open';
+    }
     return (
-      <div className="menu">
+      <div className={menuClassName}>
         <h2>Menu</h2>
         <ul onClick={this.handleClick}>
           <li><a href="#" >About</a></li>

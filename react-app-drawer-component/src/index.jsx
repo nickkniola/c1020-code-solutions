@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: true
+      isOpen: false
     };
     this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
   }
@@ -19,12 +19,15 @@ class App extends React.Component {
   }
 
   render() {
+    let appBodyClassName = 'app-body';
+    const isOpen = this.state.isOpen;
+    if (isOpen) {
+      appBodyClassName = 'app-body open';
+    }
     return (
-      <div className="app-body" onClick={this.handleDrawerToggle}>
-        <div>
-          <i className="fas fa-bars"></i>
-        </div>
-        <AppDrawer handleToggle={this.handleDrawerToggle} />
+      <div className={appBodyClassName} onClick={this.handleDrawerToggle}>
+        { !isOpen ? <div><i className="fas fa-bars"></i></div> : <div></div>}
+        <AppDrawer menuIsOpen={isOpen} handleToggle={this.handleDrawerToggle} />
       </div>
     );
   }
