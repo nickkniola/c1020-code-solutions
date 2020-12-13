@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Calibri, sans-serif;
+}
+
+div.app-body.open {
+  background-color: grey;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+li {
+  margin-top: 0.7rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-bar-icon {
+  font-size: 2.5rem;
+  margin: 1rem;
+}
+
+.nav-bar-icon:hover {
+  cursor: pointer;
+}
+
+div.menu {
+  display: inline-block;
+  width: 12rem;
+  border-right: 3px solid black;
+  height: 100vh;
+  background-color: white;
+  position: relative;
+  right: 13rem;
+}
+
+div.menu.open {
+  position: relative;
+  right: 0;
+}
