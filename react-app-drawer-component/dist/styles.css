@@ -27,12 +27,12 @@ a {
   color: black;
 }
 
-i.fa-bars {
+.nav-bar-icon {
   font-size: 2.5rem;
   margin: 1rem;
 }
 
-i.fa-bars:hover {
+.nav-bar-icon:hover {
   cursor: pointer;
 }
 

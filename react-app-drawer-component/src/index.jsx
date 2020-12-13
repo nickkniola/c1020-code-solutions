@@ -26,7 +26,7 @@ class App extends React.Component {
     }
     return (
       <div className={appBodyClassName} onClick={this.handleDrawerToggle}>
-        { !isOpen ? <div><i className="fas fa-bars"></i></div> : <div></div>}
+        { !isOpen ? <div><i className="fas fa-bars nav-bar-icon"></i></div> : <div></div>}
         <AppDrawer menuIsOpen={isOpen} handleToggle={this.handleDrawerToggle} />
       </div>
     );
