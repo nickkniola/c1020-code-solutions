@@ -21,13 +21,13 @@ class ValidatedInput extends React.Component {
     let icon = '';
     if (!password) {
       error = 'A password is required.';
-      icon = 'fas fa-times';
+      icon = 'fas fa-times error';
     } else if (password.length < 8) {
       error = 'Your password is too short.';
-      icon = 'fas fa-times';
+      icon = 'fas fa-times error';
     } else {
       error = '';
-      icon = 'fas fa-check';
+      icon = 'fas fa-check success';
     }
 
     return (

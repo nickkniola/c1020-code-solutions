@@ -22,10 +22,10 @@ i {
   vertical-align: -18%;
 }
 
-i.fa-times {
+.error {
   color: red;
 }
 
-i.fa-check {
+.success {
   color: green;
 }
