@@ -1,0 +1,31 @@
+label {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+}
+
+p {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+input {
+  height: 1.2rem;
+  width: 10rem;
+  border: 2px black solid;
+  margin-top: 0.2rem;
+}
+
+i {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  vertical-align: -18%;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
