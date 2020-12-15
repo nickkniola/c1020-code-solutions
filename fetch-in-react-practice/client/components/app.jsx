@@ -50,7 +50,7 @@ export default class App extends React.Component {
     })
       .then(response => response.json())
       .then(todo => {
-        const todosArray = this.state.todos;
+        const todosArray = this.state.todos.slice();
         todosArray.push(todo);
         this.setState({
           todos: todosArray
@@ -75,14 +75,16 @@ export default class App extends React.Component {
      */
     const todosArray = this.state.todos;
     const selectedTodo = todosArray.filter(todo => todo.todoId === todoId)[0];
-    selectedTodo.isCompleted = !selectedTodo.isCompleted;
+    const update = {
+      isCompleted: !selectedTodo.isCompleted
+    };
 
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(selectedTodo)
+      body: JSON.stringify(update)
     })
       .then(response => response.json())
       .then(todo => {
