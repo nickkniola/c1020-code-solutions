@@ -15,7 +15,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then(dataArray => this.setState({ users: dataArray }))
       .catch(err => console.error(err))
-      .finally(this.setState({ isLoading: false }));
+      .finally(() => this.setState({ isLoading: false }));
   }
 
   render() {
