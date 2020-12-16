@@ -11,10 +11,11 @@ class Accordion extends React.Component {
 
   toggleAccordion(event) {
     // if it's not an integer
-    if (!this.state.openAccordionId.isInteger()) {
+    if (!Number.isInteger(this.state.openAccordionId)) {
       // console.log('not an integer');
+      this.setState({ openAccordionId: 1 });
     } else {
-      // console.log.log(event.target);
+      // console.log(event.target);
     }
   }
 
