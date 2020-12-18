@@ -4,8 +4,10 @@ export default class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentImageIndex: 0
+      currentImageIndex: 0,
+      timeoutID: null
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(index) {
@@ -19,11 +21,14 @@ export default class Carousel extends React.Component {
     });
   }
 
-  render() {
-    setInterval(this.handleClick, 3000, this.state.currentImageIndex + 1);
+  componentDidMount() {
+    setInterval(() => this.handleClick(this.state.currentImageIndex + 1), 3000);
+  }
 
-    const image = this.props.images[this.state.currentImageIndex];
+  render() {
     const index = this.state.currentImageIndex;
+    const image = this.props.images[this.state.currentImageIndex];
+
     const openCircle = 'far fa-circle circ';
     const closedCircle = 'fas fa-circle circ';
     let dotZero = openCircle;
