@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  border: 2px solid black;
+  width: 35rem;
+  padding: 1.2rem;
+}
+
+.main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circ {
+  margin: 0.2rem;
+}
+
+.left-arrow,
+.right-arrow {
+  font-size: 2.5rem;
+}
+
+img {
+  width: 17rem;
+}
