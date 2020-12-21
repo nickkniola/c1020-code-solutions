@@ -31,23 +31,6 @@ export default class Carousel extends React.Component {
 
     const openCircle = 'far fa-circle circ';
     const closedCircle = 'fas fa-circle circ';
-    let dotZero = openCircle;
-    let dotOne = openCircle;
-    let dotTwo = openCircle;
-    let dotThree = openCircle;
-    let dotFour = openCircle;
-
-    if (index === 0) {
-      dotZero = closedCircle;
-    } else if (index === 1) {
-      dotOne = closedCircle;
-    } else if (index === 2) {
-      dotTwo = closedCircle;
-    } else if (index === 3) {
-      dotThree = closedCircle;
-    } else if (index === 4) {
-      dotFour = closedCircle;
-    }
 
     return (
       <div className="section">
@@ -61,11 +44,13 @@ export default class Carousel extends React.Component {
                 <img src={image}/>
               </div>
               <div className="dots">
-                <i className={dotZero} onClick={() => this.handleClick(0)}></i>
-                <i className={dotOne} onClick={() => this.handleClick(1)}></i>
-                <i className={dotTwo} onClick={() => this.handleClick(2)}></i>
-                <i className={dotThree} onClick={() => this.handleClick(3)}></i>
-                <i className={dotFour} onClick={() => this.handleClick(4)}></i>
+                {this.props.images.map((image, index) => {
+                  if (this.state.currentImageIndex === index) {
+                    return <i key={index} className={closedCircle} onClick={() => this.handleClick(index)}></i>;
+                  } else {
+                    return <i key={index} className={openCircle} onClick={() => this.handleClick(index)}></i>;
+                  }
+                })}
               </div>
             </div>
             <div className="right-arrow">
